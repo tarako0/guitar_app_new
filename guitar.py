@@ -3,9 +3,9 @@ class Guitar: # 1'f'平均律、7弦、ドロップDチューニング可能！�
     def __init__(self, root = 0, tuning_type = 'regular', scale_type = 'major_scale', n_onkai = 12, number_of_gen = 6):
         self.root = root # root:0はCを表す。
         self.tuning_type = tuning_type
-        self.tuning_dic = {'regular':[4,11,7,2,9,4],'drop_D':[4,11,7,2,9,2]} # tuning:1弦から,ebgdae。0はCを表す。
+        self.tuning_dic = {'regular':[4,11,7,2,9,4], 'drop_D':[4,11,7,2,9,2], 'regular7':[4,11,7,2,9,4,11]} # tuning:1弦から,ebgdae。0はCを表す。
         self.scale_type = scale_type
-        self.scale_dic = {'major_scale':[0,2,4,5,7,9,11],'minor_scale1':[0,2,3,5,7,8,10]} # scaleはメジャースケールであれば、[0,2,4,5,7,9,11]で、ルートを0とし、スケール音がルートから半音刻みでいくつずれているかを書いた辞書。
+        self.scale_dic = {'major_scale':[0,2,4,5,7,9,11], 'minor_scale1':[0,2,3,5,7,8,10]} # scaleはメジャースケールであれば、[0,2,4,5,7,9,11]で、ルートを0とし、スケール音がルートから半音刻みでいくつずれているかを書いた辞書。
         self.n_onkai = n_onkai # n_onkai:12音階。
         self.number_of_gen = number_of_gen # number_of_gen:弦の数が6。
 
@@ -20,7 +20,7 @@ class Guitar: # 1'f'平均律、7弦、ドロップDチューニング可能！�
         return scale_list
 
     def display_scale(self):
-        dosu={0:'Root',1:'9th',2:'M3',3:'P4',4:'P5',5:'6th',6:'M7'}
+        dosu={0:'Root',1:'9th',2:'M3',3:'P4',4:'P5',5:'6th',6:'M7'} # 今は、major_scaleに対してのみ度数を定義してある。
         tuning = self.tuning_dic[self.tuning_type]
         guitar_scale=self.guitar_scale()
         shiban = [[] for i in range(self.number_of_gen)] # 6
